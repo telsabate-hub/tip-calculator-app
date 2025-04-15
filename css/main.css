@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background-color: hsl(185, 41%, 84%);
+}
+
+article {
+  background-color: hsl(0, 100%, 100%);
+  margin: 82px auto;
+  max-width: 960px;
+  padding: 0 50px;
+}
+
+main {
+  padding-top: 160px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: hsl(183, 100%, 15%);
+  margin: 0 auto;
+  font-size: 25px;
+  letter-spacing: 10px;
+  line-height: 1.5;
+}
+
+form input {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background: hsl(189, 47%, 97%);
+  border: none;
+}
+
+input[type=number] {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+label, legend {
+  display: block;
+  color: hsl(186, 14%, 43%);
+}

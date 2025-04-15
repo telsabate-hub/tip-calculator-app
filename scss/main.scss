@@ -1,0 +1,43 @@
+@import './config';
+
+article {
+    background-color: $white;
+    margin: 82px auto;
+    max-width: 960px;
+    padding: 0 50px;
+}
+
+main {
+    padding-top: 160px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: $green_900;
+    margin: 0 auto;
+    font-size: 25px;
+    letter-spacing: 10px;
+    line-height: 1.5;
+}
+
+form input {
+    font-size: 24px;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    background: $grey_50;
+    border: none;
+}
+
+input[type="number"]{
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+label, legend {
+    display: block;
+    color: $grey_500;
+}

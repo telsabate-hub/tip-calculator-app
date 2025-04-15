@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/main.css">
   
   <title>Frontend Mentor | Tip calculator app</title>
 
@@ -13,71 +19,73 @@
   <main>
     <h1>SPLI</h1>
     <h1>TTER</h1>
-    <form novalidate>
-      <label>
-        Bill
-        <input type="number" name="bill" placeholder="0"/>
-      </label>
-      <fieldset>
-        <legend>Select Tip %</legend>
-        <ul>
-          <li>
-            <label>
-              <input type="radio" name="percentage" value="5"/>
-              5%
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="percentage" value="10"/>
-              10%
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="percentage" value="15"/>
-              15%
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="percentage" value="25"/>
-              25%
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="percentage" value="50"/>
-              50%
-            </label>
-          </li>
-          <li>
-            <input name="percentage" placeholder="Custom"/>
-          </li>
-        </ul>
-      </fieldset>
-      <label>
-        Number of People
-        <input type="number" name="numberOfPeople" placeholder="0"/>
-      </label>
-    </form>
-    <div>
+    <article>
+      <form novalidate>
+        <label>
+          Bill
+          <input type="number" name="bill" placeholder="0"/>
+        </label>
+        <fieldset>
+          <legend>Select Tip %</legend>
+          <ul>
+            <li>
+              <label>
+                <input type="radio" name="percentage" value="5"/>
+                5%
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="percentage" value="10"/>
+                10%
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="percentage" value="15"/>
+                15%
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="percentage" value="25"/>
+                25%
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="percentage" value="50"/>
+                50%
+              </label>
+            </li>
+            <li>
+              <input name="percentage" placeholder="Custom"/>
+            </li>
+          </ul>
+        </fieldset>
+        <label>
+          Number of People
+          <input type="number" name="numberOfPeople" placeholder="0"/>
+        </label>
+      </form>
       <div>
         <div>
-          <span>Tip Amount</span>
-          <span>/ person</span>
+          <div>
+            <span>Tip Amount</span>
+            <span>/ person</span>
+          </div>
+          <p>0.00</p>
         </div>
-        <p>0.00</p>
-      </div>
-      <div>
         <div>
-          <span>Total</span>
-          <span>/ person</span>
+          <div>
+            <span>Total</span>
+            <span>/ person</span>
+          </div>
+          <p>0.00</p>
         </div>
-        <p>0.00</p>
+        <button disabled>RESET</button>
       </div>
-      <button disabled>RESET</button>
-    </div>
+    </article>
   </main>
 </body>
 </html>

@@ -1,0 +1,19 @@
+$green_400: hsl(172, 67%, 45%);
+$green_900: hsl(183, 100%, 15%);
+$grey_500: hsl(186, 14%, 43%);
+$grey_400: hsl(184, 14%, 56%);
+$grey_200: hsl(184, 14%, 56%);
+$grey_50: hsl(189, 47%, 97%);
+$white: hsl(0, 100%, 100%);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    background-color: hsl(185, 41%, 84%);
+}
