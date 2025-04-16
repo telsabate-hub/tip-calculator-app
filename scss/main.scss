@@ -2,23 +2,20 @@
 
 article {
     background-color: $white;
-    margin: 82px auto;
+    margin: 90px auto;
     max-width: 960px;
     padding: 0 50px;
 }
 
 main {
-    padding-top: 160px;
+    padding-top: 168px;
 }
 
-h1 {
+.logo {
     display: flex;
     justify-content: center;
-    color: $green_900;
     margin: 0 auto;
-    font-size: 25px;
-    letter-spacing: 10px;
-    line-height: 1.5;
+    height: 56px;
 }
 
 form input {
@@ -29,8 +26,34 @@ form input {
     border: none;
 }
 
-input[type="number"]{
+input[type="text"]{
     display: block;
+    text-align: end;
+    color: $green_900;
+    padding: 5px 20px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+::placeholder {
+    color: $grey_200;
+    opacity: 70%;
+}
+
+.bill-input {
+    @include addInputIcon('../images/icon-dollar.svg');
+}
+
+.num-of-people-input {
+    @include addInputIcon('../images/icon-person.svg');
+}
+
+input.percentage-input {
+    text-align: left;
+
+    &::placeholder{
+        color: $green_900;
+    }
 }
 
 ul {

@@ -17,3 +17,9 @@ body {
     font-weight: 700;
     background-color: hsl(185, 41%, 84%);
 }
+
+@mixin addInputIcon( $path ){
+    background-image: url( $path );
+    background-repeat: no-repeat;
+    background-position: 20px 17px;
+}

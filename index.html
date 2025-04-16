@@ -17,13 +17,13 @@
 </head>
 <body>
   <main>
-    <h1>SPLI</h1>
-    <h1>TTER</h1>
+    <h1></h1>
+    <img class="logo" src="./images/logo.svg" alt="Splitter Logo"/>
     <article>
       <form novalidate>
         <label>
           Bill
-          <input type="number" name="bill" placeholder="0"/>
+          <input type="text" name="bill" class="bill-input" placeholder="0"/>
         </label>
         <fieldset>
           <legend>Select Tip %</legend>
@@ -59,13 +59,13 @@
               </label>
             </li>
             <li>
-              <input name="percentage" placeholder="Custom"/>
+              <input type="text" class="percentage-input" name="percentage" placeholder="Custom"/>
             </li>
           </ul>
         </fieldset>
         <label>
           Number of People
-          <input type="number" name="numberOfPeople" placeholder="0"/>
+          <input type="text" class="num-of-people-input" name="numberOfPeople" placeholder="0"/>
         </label>
       </form>
       <div>

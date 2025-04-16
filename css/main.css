@@ -12,23 +12,20 @@ body {
 
 article {
   background-color: hsl(0, 100%, 100%);
-  margin: 82px auto;
+  margin: 90px auto;
   max-width: 960px;
   padding: 0 50px;
 }
 
 main {
-  padding-top: 160px;
+  padding-top: 168px;
 }
 
-h1 {
+.logo {
   display: flex;
   justify-content: center;
-  color: hsl(183, 100%, 15%);
   margin: 0 auto;
-  font-size: 25px;
-  letter-spacing: 10px;
-  line-height: 1.5;
+  height: 56px;
 }
 
 form input {
@@ -39,8 +36,45 @@ form input {
   border: none;
 }
 
-input[type=number] {
+input[type=text] {
   display: block;
+  text-align: end;
+  color: hsl(183, 100%, 15%);
+  padding: 5px 20px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+  opacity: 70%;
+}
+
+::placeholder {
+  color: hsl(184, 14%, 56%);
+  opacity: 70%;
+}
+
+.bill-input {
+  background-image: url("../images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 20px 17px;
+}
+
+.num-of-people-input {
+  background-image: url("../images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 20px 17px;
+}
+
+input.percentage-input {
+  text-align: left;
+}
+input.percentage-input::-moz-placeholder {
+  color: hsl(183, 100%, 15%);
+}
+input.percentage-input::placeholder {
+  color: hsl(183, 100%, 15%);
 }
 
 ul {
