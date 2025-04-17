@@ -2,16 +2,17 @@
 
 article {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: $white;
     margin: 90px auto;
-    max-width: 960px;
-    padding: 34px 50px;
+    max-width: 923px;
+    padding: 32px 32px 32px 50px;
     border-radius: 20px;
 }
 
 main {
     padding-top: 168px;
+    padding-bottom: 150px;
 }
 
 .logo {
@@ -19,6 +20,11 @@ main {
     justify-content: center;
     margin: 0 auto;
     height: 56px;
+}
+
+form {
+    width: 380px;
+    margin-bottom: 17px;
 }
 
 form input {
@@ -50,13 +56,25 @@ input[type="text"]{
     text-align: end;
     color: $green_900;
     padding: 5px 20px;
-    height: 50px;
-    border-radius: 8px;
+    height: 47px;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 7px;
+}
+
+input[type="radio"]{
+    width: 0;
 }
 
 ::placeholder {
     color: $grey_200;
     opacity: 70%;
+}
+
+fieldset {
+    border: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .bill-input {
@@ -69,6 +87,9 @@ input[type="text"]{
 
 input.percentage-input {
     text-align: left;
+    width: 100%;
+    margin-top: 0px;
+    padding: 5px 10px;
 
     &::placeholder{
         color: $green_900;
@@ -76,36 +97,50 @@ input.percentage-input {
 }
 
 ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     list-style: none;
+    margin-top: 17px;
+}
+
+li label {
+    background-color: $green_900;
+    color: $white;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+    padding: 5px 0 7px;
+    margin-top: 0;
 }
 
 label, legend {
     display: block;
     color: $grey_500;
+    margin-top: 14px;
 }
 
 .tip-container {
     background-color: $green_900;
     color: $white;
-    font-size: 17px;
-    padding: 42px 40px;
+    font-size: 16px;
+    padding: 42px 40px 40px;
     border-radius: 15px;
+    width: 415px;
 }
 
 .amount-container {
     display: flex;
     justify-content: space-between;
-    gap: 96px;
-    padding-top: 3px;
 }
 
 .amount-container:first-of-type {
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 .amount-container p {
     color: $green_400;
-    font-size: 49px;
+    font-size: 47px;
 }
 
 .tip-label {
@@ -115,7 +150,11 @@ label, legend {
 }
 
 .per-person {
-    font-size: 14px;
+    font-size: 13px;
     color: $grey_200;
 }
 
+.reset-button {
+    border: none;
+    margin-top: 123px;
+}
