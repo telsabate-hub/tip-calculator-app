@@ -11,10 +11,13 @@ body {
 }
 
 article {
+  display: flex;
+  justify-content: space-evenly;
   background-color: hsl(0, 100%, 100%);
   margin: 90px auto;
   max-width: 960px;
-  padding: 0 50px;
+  padding: 34px 50px;
+  border-radius: 20px;
 }
 
 main {
@@ -34,6 +37,22 @@ form input {
   font-weight: 700;
   background: hsl(189, 47%, 97%);
   border: none;
+}
+
+button {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  width: 100%;
+  font-size: 20px;
+  padding: 9px;
+  border-radius: 5px;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+button:disabled {
+  background-color: hsla(172, 67%, 45%, 0.3);
+  color: hsla(183, 100%, 15%, 0.3);
 }
 
 input[type=text] {
@@ -84,4 +103,39 @@ ul {
 label, legend {
   display: block;
   color: hsl(186, 14%, 43%);
+}
+
+.tip-container {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 100%, 100%);
+  font-size: 17px;
+  padding: 42px 40px;
+  border-radius: 15px;
+}
+
+.amount-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 96px;
+  padding-top: 3px;
+}
+
+.amount-container:first-of-type {
+  margin-bottom: 24px;
+}
+
+.amount-container p {
+  color: hsl(172, 67%, 45%);
+  font-size: 49px;
+}
+
+.tip-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.per-person {
+  font-size: 14px;
+  color: hsl(184, 14%, 56%);
 }

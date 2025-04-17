@@ -1,10 +1,13 @@
 @import './config';
 
 article {
+    display: flex;
+    justify-content: space-evenly;
     background-color: $white;
     margin: 90px auto;
     max-width: 960px;
-    padding: 0 50px;
+    padding: 34px 50px;
+    border-radius: 20px;
 }
 
 main {
@@ -24,6 +27,22 @@ form input {
     font-weight: 700;
     background: $grey_50;
     border: none;
+}
+
+button {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    width: 100%;
+    font-size: 20px;
+    padding: 9px;
+    border-radius: 5px;
+    background-color: $green_400;
+    color: $green_900;
+}
+
+button:disabled {
+    background-color: hsl(172deg 67% 45% / 30%);
+    color: hsl(183deg 100% 15% / 30%);
 }
 
 input[type="text"]{
@@ -64,3 +83,39 @@ label, legend {
     display: block;
     color: $grey_500;
 }
+
+.tip-container {
+    background-color: $green_900;
+    color: $white;
+    font-size: 17px;
+    padding: 42px 40px;
+    border-radius: 15px;
+}
+
+.amount-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 96px;
+    padding-top: 3px;
+}
+
+.amount-container:first-of-type {
+    margin-bottom: 24px;
+}
+
+.amount-container p {
+    color: $green_400;
+    font-size: 49px;
+}
+
+.tip-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.per-person {
+    font-size: 14px;
+    color: $grey_200;
+}
+
