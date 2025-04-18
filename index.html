@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/main.css">
+
+  <script src="./js/main.js" defer></script>
   
   <title>Frontend Mentor | Tip calculator app</title>
 
@@ -23,7 +25,7 @@
       <form novalidate>
         <label>
           Bill
-          <input type="text" name="bill" class="bill-input" placeholder="0"/>
+          <input type="text" name="bill" class="bill-input" id="billInput" placeholder="0" maxlength="20"/>
         </label>
         <fieldset>
           <legend>Select Tip %</legend>
@@ -44,13 +46,13 @@
               <label><input type="radio" name="percentage" value="50"/>50%</label>
             </li>
             <li>
-              <input type="text" class="percentage-input" name="percentage" placeholder="Custom"/>
+              <input type="text" class="percentage-input" name="percentage" placeholder="Custom" maxlength="3"/>
             </li>
           </ul>
         </fieldset>
         <label>
-          Number of People
-          <input type="text" class="num-of-people-input" name="numberOfPeople" placeholder="0"/>
+          Number of People<span class="error-msg" hidden></span>
+          <input type="text" class="num-of-people-input" name="numberOfPeople" placeholder="0" maxlength="10"/>
         </label>
       </form>
       <div class="tip-container">

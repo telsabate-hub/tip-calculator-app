@@ -72,6 +72,11 @@ input[type=text] {
   margin-top: 7px;
 }
 
+input[type=text]:focus {
+  border: 3px solid hsl(172, 67%, 45%);
+  outline: none;
+}
+
 input[type=radio] {
   width: 0;
 }
@@ -95,26 +100,27 @@ fieldset {
 .bill-input {
   background-image: url("../images/icon-dollar.svg");
   background-repeat: no-repeat;
-  background-position: 20px 17px;
+  background-position: 20px 15px;
 }
 
 .num-of-people-input {
   background-image: url("../images/icon-person.svg");
   background-repeat: no-repeat;
-  background-position: 20px 17px;
+  background-position: 20px 15px;
 }
 
 input.percentage-input {
-  text-align: left;
   width: 100%;
   margin-top: 0px;
   padding: 5px 10px;
 }
 input.percentage-input::-moz-placeholder {
   color: hsl(183, 100%, 15%);
+  text-align: left;
 }
 input.percentage-input::placeholder {
   color: hsl(183, 100%, 15%);
+  text-align: left;
 }
 
 ul {
@@ -133,6 +139,16 @@ li label {
   font-size: 24px;
   padding: 5px 0 7px;
   margin-top: 0;
+}
+
+li label:hover {
+  color: hsl(183, 100%, 15%);
+  background-color: #9ee8df;
+}
+
+.selected-tip {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
 }
 
 label, legend {
@@ -178,4 +194,13 @@ label, legend {
 .reset-button {
   border: none;
   margin-top: 123px;
+}
+.reset-button:hover {
+  color: hsl(183, 100%, 15%);
+  background-color: #9ee8df;
+}
+
+.error-msg {
+  float: inline-end;
+  color: #e48275;
 }

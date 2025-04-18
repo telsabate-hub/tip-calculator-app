@@ -5,6 +5,9 @@ $grey_400: hsl(184, 14%, 56%);
 $grey_200: hsl(184, 14%, 56%);
 $grey_50: hsl(189, 47%, 97%);
 $white: hsl(0, 100%, 100%);
+$green_hover: #9ee8df;
+$orange_error: #e48275;
+$error_border_color: #e6a795;
 
 * {
     box-sizing: border-box;
@@ -21,5 +24,10 @@ body {
 @mixin addInputIcon( $path ){
     background-image: url( $path );
     background-repeat: no-repeat;
-    background-position: 20px 17px;
+    background-position: 20px 15px;
+}
+
+@mixin hoverStyle(){
+    color: $green_900;
+    background-color: $green_hover;
 }

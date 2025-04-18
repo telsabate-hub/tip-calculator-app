@@ -51,7 +51,7 @@ button:disabled {
     color: hsl(183deg 100% 15% / 30%);
 }
 
-input[type="text"]{
+input[type=text]{
     display: block;
     text-align: end;
     color: $green_900;
@@ -62,7 +62,12 @@ input[type="text"]{
     margin-top: 7px;
 }
 
-input[type="radio"]{
+input[type=text]:focus{
+    border: 3px solid $green_400;
+    outline: none;
+}
+
+input[type=radio]{
     width: 0;
 }
 
@@ -86,13 +91,13 @@ fieldset {
 }
 
 input.percentage-input {
-    text-align: left;
     width: 100%;
     margin-top: 0px;
     padding: 5px 10px;
 
     &::placeholder{
         color: $green_900;
+        text-align: left;
     }
 }
 
@@ -112,6 +117,15 @@ li label {
     font-size: 24px;
     padding: 5px 0 7px;
     margin-top: 0;
+}
+
+li label:hover {
+    @include hoverStyle();
+}
+
+.selected-tip {
+    color: $green_900;
+    background-color: $green_400;
 }
 
 label, legend {
@@ -157,4 +171,13 @@ label, legend {
 .reset-button {
     border: none;
     margin-top: 123px;
+
+    &:hover {
+        @include hoverStyle();
+    }
+}
+
+.error-msg {
+    float: inline-end;
+    color: $orange_error;
 }
