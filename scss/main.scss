@@ -51,7 +51,7 @@ button:disabled {
     color: hsl(183deg 100% 15% / 30%);
 }
 
-input[type=text]{
+input[type=text], input[type=number]{
     display: block;
     text-align: end;
     color: $green_900;
@@ -62,9 +62,21 @@ input[type=text]{
     margin-top: 7px;
 }
 
-input[type=text]:focus{
+input[type=text]:focus, input[type=number]:focus{
     border: 3px solid $green_400;
     outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 input[type=radio]{
@@ -84,6 +96,10 @@ fieldset {
 
 .bill-input {
     @include addInputIcon('../images/icon-dollar.svg');
+
+    &:invalid {
+        border: 3px solid $error_border_color;
+    }
 }
 
 .num-of-people-input {
