@@ -30,4 +30,5 @@ body {
 @mixin hoverStyle(){
     color: $green_900;
     background-color: $green_hover;
+    outline: none;
 }

@@ -71,6 +71,9 @@ input[type=text], input[type=number] {
   width: 100%;
   margin-top: 7px;
 }
+input[type=text]:invalid, input[type=number]:invalid {
+  border: 3px solid #e6a795;
+}
 
 input[type=text]:focus, input[type=number]:focus {
   border: 3px solid hsl(172, 67%, 45%);
@@ -114,9 +117,6 @@ fieldset {
   background-repeat: no-repeat;
   background-position: 20px 15px;
 }
-.bill-input:invalid {
-  border: 3px solid #e6a795;
-}
 
 .num-of-people-input {
   background-image: url("../images/icon-person.svg");
@@ -156,9 +156,10 @@ li label {
   margin-top: 0;
 }
 
-li label:hover {
+li label:hover, li label:focus {
   color: hsl(183, 100%, 15%);
   background-color: #9ee8df;
+  outline: none;
 }
 
 .selected-tip {
@@ -170,6 +171,10 @@ label, legend {
   display: block;
   color: hsl(186, 14%, 43%);
   margin-top: 14px;
+}
+
+legend {
+  width: 100%;
 }
 
 .tip-container {
@@ -213,6 +218,7 @@ label, legend {
 .reset-button:hover {
   color: hsl(183, 100%, 15%);
   background-color: #9ee8df;
+  outline: none;
 }
 
 .error-msg {

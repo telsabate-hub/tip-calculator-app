@@ -60,6 +60,10 @@ input[type=text], input[type=number]{
     border-radius: 5px;
     width: 100%;
     margin-top: 7px;
+
+    &:invalid {
+        border: 3px solid $error_border_color;
+    }
 }
 
 input[type=text]:focus, input[type=number]:focus{
@@ -81,6 +85,11 @@ input[type=number] {
 
 input[type=radio]{
     width: 0;
+
+    // &:checked {
+    //     color: $green_900;
+    //     background-color: $green_400;
+    // }
 }
 
 ::placeholder {
@@ -97,9 +106,9 @@ fieldset {
 .bill-input {
     @include addInputIcon('../images/icon-dollar.svg');
 
-    &:invalid {
-        border: 3px solid $error_border_color;
-    }
+    // &:invalid {
+    //     border: 3px solid $error_border_color;
+    // }
 }
 
 .num-of-people-input {
@@ -135,7 +144,7 @@ li label {
     margin-top: 0;
 }
 
-li label:hover {
+li label:hover, li label:focus {
     @include hoverStyle();
 }
 
@@ -148,6 +157,10 @@ label, legend {
     display: block;
     color: $grey_500;
     margin-top: 14px;
+}
+
+legend {
+    width: 100%;
 }
 
 .tip-container {
@@ -197,3 +210,4 @@ label, legend {
     float: inline-end;
     color: $orange_error;
 }
+
