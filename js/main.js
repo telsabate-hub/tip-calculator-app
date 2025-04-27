@@ -10,9 +10,9 @@ const errorMsgElements = {
 };
 
 const validityFuncs = {
-    billInput: checkBillValidity,
-    percentageInput: checkPercentageValidity,
-    numberOfPeopleInput: checkNumOfPeopleValidity,
+    billInput: isBillValid,
+    percentageInput: isPercentageValid,
+    numberOfPeopleInput: isNumOfPeopleValid,
 };
 
 function setupListeners(){
@@ -28,7 +28,12 @@ function setupListeners(){
 
     percentageButtons.forEach( (button) => {
         button.addEventListener( "click", function(e){
-            e.target.parentElement.classList.add( "selected-tip" );
+            clearSelectedTip();
+
+            if( e.target.id != "percentageInput" ){
+                e.target.parentElement.classList.add( "selected-tip" );
+                checkValidity();
+            }
         });
     });
 }
@@ -57,39 +62,119 @@ function keyupListener(e){
     if( key != "Tab" && key != "Enter" ){
         errorMsgElements[ e.target.id ].innerHTML = "";
     } else {
-        checkValidity(e);
+        checkValidity();
     }
 }
 
-function checkValidity(e){
-    if( validityFuncs[ e.target.id ] ){
-        validityFuncs[ e.target.id ](e);
+function checkValidity(){
+    let areAllInputsValid = true;
+
+    for( let elemID in validityFuncs ){
+        let isValid = validityFuncs[ elemID ]();
+
+        // console.log( elemID, isValid );
+        areAllInputsValid = areAllInputsValid && isValid;
+    }
+
+    if( areAllInputsValid ){
+        // console.log(`allInputsValid`);
+        computeTip();
     }
 }
 
-function checkBillValidity(e){
-    let validity = e.target.validity;
+function isBillValid(e){
+    const input = document.getElementById( "billInput" );
+    let validity = input.validity;
+    let isValid = true;
     
     // console.log(`validity`, validity)
-    if( validity.rangeUnderflow || validity.rangeOverflow ) billInputError.innerHTML = "Should be 1 - 1000000";
-    else if( validity.stepMismatch ) billInputError.innerHTML = "Up to 2 decimal places only";
-    else if( validity.badInput ) billInputError.innerHTML = "Invalid Amount";
+    if( validity.rangeUnderflow || validity.rangeOverflow ){
+        billInputError.innerHTML = "Should be 1 - 1000000";
+        isValid = false;
+    } else if( validity.stepMismatch ){
+        billInputError.innerHTML = "Up to 2 decimal places only";
+        isValid = false;
+    } else if( validity.badInput ){
+        billInputError.innerHTML = "Invalid Amount";
+        isValid = false;
+    } else if( input.value.trim() == "" ){
+        isValid = false;
+    }
     
+    return isValid;
 }
 
-function checkPercentageValidity(e){
-    let validity = e.target.validity;
+function isPercentageValid(e){
+    const input = document.getElementById( "percentageInput" );
+    const selectedTips = document.querySelectorAll( ".selected-tip" );
+    let validity = input.validity;
+    let isValid = true;
 
-    if( validity.rangeUnderflow || validity.rangeOverflow ) percentageInputError.innerHTML = "Should be 1 - 100";
-    else if( validity.badInput ) percentageInputError.innerHTML = "Invalid Percentage";
+    if( selectedTips.length == 0 ){
+        if( validity.rangeUnderflow || validity.rangeOverflow ){
+            percentageInputError.innerHTML = "Should be 1 - 100";
+            isValid = false;
+        } else if( validity.badInput ){
+            percentageInputError.innerHTML = "Invalid Percentage";
+            isValid = false;
+        } else if( input.value.trim() == "" ){
+            isValid = false;
+        }
+    }
+
+    return isValid;
 }
 
-function checkNumOfPeopleValidity(e){
-    let validity = e.target.validity;
+function isNumOfPeopleValid(e){
+    const input = document.getElementById( "numberOfPeopleInput" );
+    let validity = input.validity;
+    let isValid = true;
 
-    // console.log(`checkNumOfPeopleValidity`, validity)
-    if( validity.rangeUnderflow ) numberOfPeopleInputError.innerHTML = "Can't be zero";
-    else if( validity.badInput ) numberOfPeopleInputError.innerHTML = "Invalid Value";
+    if( validity.rangeUnderflow ){
+        numberOfPeopleInputError.innerHTML = "Can't be zero";
+        isValid = false;
+    } else if( validity.badInput ){
+        numberOfPeopleInputError.innerHTML = "Invalid Value";
+        isValid = false;
+    } else if( input.value.trim() == "" ){
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function clearSelectedTip(){
+    const selectedTips = document.querySelectorAll( ".selected-tip" );
+
+    for( let i=0; i < selectedTips.length; i++ ){
+        selectedTips[i].classList.remove( "selected-tip" );
+    }
+}
+
+function computeTip(){
+    const formData = new FormData( form );
+    const data = Object.fromEntries( formData );
+    let values = {};
+
+    Object.keys( data ).forEach((name) => {
+        console.log(`name`, name, data[name], typeof data[name])
+        values[ name ] = data[name];
+    });
+
+    if( values.percentage == "" ){
+        const selectedTip = document.querySelector( ".selected-tip > input" );
+        values.percentage = selectedTip.value;
+    }
+
+    let pct = ( values.percentage / 100 );
+    let tipAmount = values.bill * pct / values.numberOfPeople;
+    let totalPerPerson = values.bill * ( 1 + pct ) / values.numberOfPeople;
+
+    // console.log(`tipAmount`, tipAmount)
+    // console.log(`totalPerPerson`, totalPerPerson)
+
+    document.getElementById( "tipAmount" ).innerHTML = tipAmount.toFixed(2);
+    document.getElementById( "totalAmount" ).innerHTML = totalPerPerson.toFixed(2);
 }
 
 
