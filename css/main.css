@@ -215,7 +215,7 @@ legend {
   border: none;
   margin-top: 123px;
 }
-.reset-button:hover {
+.reset-button:not([disabled]):hover {
   color: hsl(183, 100%, 15%);
   background-color: #9ee8df;
   outline: none;

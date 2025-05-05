@@ -201,7 +201,7 @@ legend {
     border: none;
     margin-top: 123px;
 
-    &:hover {
+    &:not([disabled]):hover {
         @include hoverStyle();
     }
 }

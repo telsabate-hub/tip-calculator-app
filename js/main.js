@@ -3,6 +3,7 @@ const inputElemIDs = [ "billInput", "percentageInput", "numberOfPeopleInput" ];
 const billInputError = document.getElementById( "billInputError" );
 const percentageInputError = document.getElementById( "percentageInputError" );
 const numberOfPeopleInputError = document.getElementById( "numberOfPeopleInputError" );
+const resetButton = document.getElementById( "resetButton" );
 const errorMsgElements = {
     billInput: billInputError,
     percentageInput: percentageInputError,
@@ -29,13 +30,17 @@ function setupListeners(){
     percentageButtons.forEach( (button) => {
         button.addEventListener( "click", function(e){
             clearSelectedTip();
-
+            
             if( e.target.id != "percentageInput" ){
                 e.target.parentElement.classList.add( "selected-tip" );
                 checkValidity();
             }
+
+            toggleResetButton();
         });
     });
+
+    resetButton.addEventListener( "click", clearAllFields );
 }
 
 function keydownListener(e){
@@ -58,6 +63,8 @@ function keydownListener(e){
 function keyupListener(e){
     const key = e.key;
     // console.log(`keyup`, key)
+
+    toggleResetButton();
     
     if( key != "Tab" && key != "Enter" ){
         errorMsgElements[ e.target.id ].innerHTML = "";
@@ -149,6 +156,8 @@ function clearSelectedTip(){
     for( let i=0; i < selectedTips.length; i++ ){
         selectedTips[i].classList.remove( "selected-tip" );
     }
+
+    document.getElementById( "percentageInput" ).value = "";
 }
 
 function computeTip(){
@@ -157,7 +166,7 @@ function computeTip(){
     let values = {};
 
     Object.keys( data ).forEach((name) => {
-        console.log(`name`, name, data[name], typeof data[name])
+        // console.log(`name`, name, data[name], typeof data[name])
         values[ name ] = data[name];
     });
 
@@ -177,7 +186,47 @@ function computeTip(){
     document.getElementById( "totalAmount" ).innerHTML = totalPerPerson.toFixed(2);
 }
 
+function areAllFieldsEmpty(){
+    const selectedTips = document.querySelectorAll( ".selected-tip" );
 
+    for( let i=0; i < inputElemIDs.length; i++ ){
+        let elemID = inputElemIDs[i];
+        let input = document.getElementById( elemID );
+
+        if( elemID == "percentageInput" ){
+            // console.log(`selectedTips.length`, selectedTips.length)
+            if( selectedTips.length == 0 && input.value.trim() != "" ) return false;
+            if( selectedTips.length > 0 ) return false;
+        } else {
+            if( input.value.trim() != "" ) return false;
+        }
+    }
+
+    return true;
+}
+
+function toggleResetButton(){
+    // console.log(`areAllFieldsEmpty?`, areAllFieldsEmpty())
+    if( areAllFieldsEmpty() ){
+        resetButton.setAttribute( "disabled", true );
+    } else {
+        resetButton.removeAttribute( "disabled" );
+    }
+}
+
+function clearAllFields(){
+    clearSelectedTip();
+
+    for( let i=0; i < inputElemIDs.length; i++ ){
+        let elemID = inputElemIDs[i];
+        let input = document.getElementById( elemID );
+
+        input.value = "";
+        errorMsgElements[ elemID ].innerHTML = "";
+    }
+
+    resetButton.setAttribute( "disabled", true );
+}
 
 
 setupListeners();
