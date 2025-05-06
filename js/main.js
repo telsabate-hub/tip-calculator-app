@@ -33,6 +33,9 @@ function setupListeners(){
             
             if( e.target.id != "percentageInput" ){
                 e.target.parentElement.classList.add( "selected-tip" );
+                errorMsgElements.percentageInput.innerHTML = "";
+                document.getElementById( "percentageInput" ).disabled = true;
+
                 checkValidity();
             }
 
@@ -86,6 +89,8 @@ function checkValidity(){
     if( areAllInputsValid ){
         // console.log(`allInputsValid`);
         computeTip();
+    } else {
+        clearComputedValues();
     }
 }
 
@@ -152,12 +157,14 @@ function isNumOfPeopleValid(e){
 
 function clearSelectedTip(){
     const selectedTips = document.querySelectorAll( ".selected-tip" );
+    const percentageInput = document.getElementById( "percentageInput" );
 
     for( let i=0; i < selectedTips.length; i++ ){
         selectedTips[i].classList.remove( "selected-tip" );
     }
 
-    document.getElementById( "percentageInput" ).value = "";
+    percentageInput.value = "";
+    percentageInput.removeAttribute( "disabled" );
 }
 
 function computeTip(){
@@ -184,6 +191,11 @@ function computeTip(){
 
     document.getElementById( "tipAmount" ).innerHTML = tipAmount.toFixed(2);
     document.getElementById( "totalAmount" ).innerHTML = totalPerPerson.toFixed(2);
+}
+
+function clearComputedValues(){
+    document.getElementById( "tipAmount" ).innerHTML = "0.00";
+    document.getElementById( "totalAmount" ).innerHTML = "0.00";
 }
 
 function areAllFieldsEmpty(){
