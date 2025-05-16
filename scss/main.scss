@@ -85,11 +85,6 @@ input[type=number] {
 
 input[type=radio]{
     width: 0;
-
-    // &:checked {
-    //     color: $green_900;
-    //     background-color: $green_400;
-    // }
 }
 
 ::placeholder {
@@ -105,10 +100,6 @@ fieldset {
 
 .bill-input {
     @include addInputIcon('../images/icon-dollar.svg');
-
-    // &:invalid {
-    //     border: 3px solid $error_border_color;
-    // }
 }
 
 .num-of-people-input {

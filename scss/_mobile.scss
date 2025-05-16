@@ -1,4 +1,19 @@
-@media screen and (max-width: 430px){
+@media screen and (max-width: 950px){
+    article {
+        padding: 20px;
+    }
+
+    form {
+        width: 47%;
+    }
+
+    .tip-container {
+        padding: 35px 20px 25px;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 711px){
     main {
         padding-top: 50px;
         padding-bottom: 0px;
@@ -8,14 +23,13 @@
         display: block;
         margin-top: 40px;
         margin-bottom: 0px;
-        // padding: 20px 32px;
-        padding: 20px 30px 20px 24px;
+        padding: 20px;
     }
 
     form {
         width: 100%;
-        margin-bottom: 40px;
-        padding-left: 2px;
+        margin-bottom: 35px;
+        padding-left: 8px;
         padding-right: 8px;
     }
 
@@ -33,5 +47,14 @@
 
     .tip-container {
         width: 100%;
+        padding: 35px 20px 25px;
+    }
+
+    .amount-container p {
+        font-size: 2rem;
+    }
+
+    .reset-button {
+        margin-top: 30px;
     }
 }

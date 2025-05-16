@@ -227,6 +227,7 @@ function toggleResetButton(){
 }
 
 function clearAllFields(){
+    clearComputedValues();
     clearSelectedTip();
 
     for( let i=0; i < inputElemIDs.length; i++ ){
